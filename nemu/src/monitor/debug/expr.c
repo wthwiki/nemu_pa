@@ -233,7 +233,7 @@ int eval(int p, int q) {
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
       if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
-        printf("mut\n");
+        printf("mut%d\n",f);
         f=1;
         op=i;
       }else if(cnt==0&&f==0&&(type==TK_PUS||type==TK_SUB)){
