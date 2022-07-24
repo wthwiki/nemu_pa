@@ -228,18 +228,13 @@ int eval(int p, int q) {
     int op= p ;
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
-      if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
-        printf("EQ,E%d\t",f);
-        f=2;
-        printf("EQ,E%d\n",f);
-        op=i;
-        printf("op=%d\n",i);
-      }else if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
-        printf("mut%d\n",f);
+      if(cnt==0&&f<2&&(type>=TK_EQ&&type<=TK_GE)){
         f=1;
         op=i;
-      }else if(cnt==0&&f==0&&(type==TK_PUS||type==TK_SUB)){
-        printf("pus,sub%d\n",f);
+      }else if(cnt==0&&f==0&&(type==TK_DIV||type==TK_MUT)){
+        op=i;
+      }else if(cnt==0&&(type==TK_PUS||type==TK_SUB)){
+        f=2;
         op=i;
       }else if(type==TK_BR_L){
         cnt++;
