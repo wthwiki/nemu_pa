@@ -229,8 +229,9 @@ int eval(int p, int q) {
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
       if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
-        printf("EQ,E%d\n",f);
+        printf("EQ,E%d\t",f);
         f=2;
+        printf("EQ,E%d\n",f);
         op=i;
       }else if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
         printf("mut%d\n",f);
