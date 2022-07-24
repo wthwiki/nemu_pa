@@ -233,6 +233,7 @@ int eval(int p, int q) {
         f=2;
         printf("EQ,E%d\n",f);
         op=i;
+        printf("op=%d\n",i);
       }else if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
         printf("mut%d\n",f);
         f=1;
