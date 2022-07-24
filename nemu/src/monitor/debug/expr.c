@@ -228,17 +228,19 @@ int eval(int p, int q) {
     int cnt=0;
     int type=-1;
     //op = the position of 主运算符 in the token expression;
-    int f=0;
+    int f=0; // priority 0 +- 1 */ 2 andorno
     int op= p ;
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
       if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
+        printf("mut\n");
         f=1;
         op=i;
       }else if(cnt==0&&f==0&&(type==TK_PUS||type==TK_SUB)){
-        printf("iiii\n");
+        printf("pus,sub\n");
         op=i;
       }else if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
+        printf("EQ,E\n");
         f=2;
         op=i;
       }else if(type==TK_BR_L){
