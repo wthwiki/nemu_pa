@@ -232,11 +232,14 @@ int eval(int p, int q) {
     int op= p ;
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
-      if(cnt==0&&(type==TK_DIV||type==TK_MUT)){
+      if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
         f=1;
         op=i;
       }else if(cnt==0&&f==0&&(type==TK_PUS||type==TK_SUB)){
         printf("iiii\n");
+        op=i;
+      }else if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
+        f=2;
         op=i;
       }else if(type==TK_BR_L){
         cnt++;
