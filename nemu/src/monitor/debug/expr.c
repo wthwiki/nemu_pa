@@ -232,16 +232,16 @@ int eval(int p, int q) {
     int op= p ;
     for(int i=p;i<=q;i++){
       type=tokens[i].type;
-      if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
+      if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
+        printf("EQ,E%d\n",f);
+        f=2;
+        op=i;
+      }else if(cnt==0&&f<2&&(type==TK_DIV||type==TK_MUT)){
         printf("mut%d\n",f);
         f=1;
         op=i;
       }else if(cnt==0&&f==0&&(type==TK_PUS||type==TK_SUB)){
-        printf("pus,sub\n");
-        op=i;
-      }else if(cnt==0&&(type>=TK_EQ&&type<=TK_GE)){
-        printf("EQ,E\n");
-        f=2;
+        printf("pus,sub%d\n",f);
         op=i;
       }else if(type==TK_BR_L){
         cnt++;
