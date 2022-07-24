@@ -140,7 +140,6 @@ word_t expr(char *e, bool *success) {
       }
     }
   }
-  printf("nr_token=%d\n",nr_token);
   word_t res=eval(0,nr_token-1);
   Log("res=%d\n",res);
   return res;
@@ -179,13 +178,11 @@ bool have_op(int p,int q){
 
 int eval(int p, int q) {
   if (p > q) {
-    printf("p>q gg \n");
     /* Bad expression */
     assert(0);
     
     return 0xffffffff;
   }else if (!have_op(p,q)) {
-    printf("no option\n");
     /* Single token.
      * For now this token should be a number.
      * Return the value of the number.
@@ -211,7 +208,6 @@ int eval(int p, int q) {
     }
     for(int i=q-1;i>=p;i--){
         if(tokens[p].type==TK_NEG){
-          printf("neg\n");
           res = -res;
         }else if(tokens[p].type==TK_POINT){
           res = vaddr_mmu_read(res,4,0);
