@@ -140,6 +140,7 @@ word_t expr(char *e, bool *success) {
       }
     }
   }
+  printf("nr_token=%d\n",nr_token);
   word_t res=eval(0,nr_token-1);
   Log("res=%d\n",res);
   return res;
