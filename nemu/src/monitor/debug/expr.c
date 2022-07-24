@@ -247,6 +247,7 @@ int eval(int p, int q) {
         cnt--;
       }
     }
+    Log("op=%d\n",op);
     int val1 = eval(p, op - 1);
     int val2 = eval(op + 1, q);
     Log("val1=%d,val2=%d,op=%d\n",val1,val2,op);
