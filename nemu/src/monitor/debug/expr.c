@@ -178,11 +178,13 @@ bool have_op(int p,int q){
 
 int eval(int p, int q) {
   if (p > q) {
+    printf("p>q gg \n");
     /* Bad expression */
     assert(0);
     
     return 0xffffffff;
   }else if (!have_op(p,q)) {
+    printf("no option\n");
     /* Single token.
      * For now this token should be a number.
      * Return the value of the number.
@@ -249,7 +251,7 @@ int eval(int p, int q) {
       case TK_SUB: return val1 - val2;
       case TK_MUT: return val1 * val2;
       case TK_DIV: return val1 / val2;
-      case TK_EQ:return val1==val2;
+      case TK_EQ: return val1==val2;
       case TK_NEQ:return val1!=val2;
       case TK_AND:return val1&&val2;
       case TK_OR:return val1||val2;
