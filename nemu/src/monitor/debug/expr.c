@@ -38,7 +38,7 @@ static struct rule {
   {"==", TK_EQ},        // equal
   {"!=", TK_NEQ},
   {"&&", TK_AND},
-  {"||", TK_OR},
+  {"[|]{2,2}", TK_OR},
   {"<=", TK_LE},
   {">=", TK_GE},
   {">",TK_G},// regex compilation failed: Invalid preceding regular expression >(?!=)
