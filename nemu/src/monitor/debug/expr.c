@@ -77,7 +77,6 @@ static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 int eval();
 static bool make_token(char *e) {
-
   printf("e=%s \n",e);
   int position = 0;
   int i;
@@ -125,12 +124,14 @@ static bool make_token(char *e) {
   return true;
 }
 
-
+// cal the expression e value
 word_t expr(char *e, bool *success) {
+  // judge expression e is legal  and put token to tokens
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
+  // distiguish sub and neg AND mut and pointer
   for (int i = 0; i < nr_token; i ++) {
   if ((tokens[i].type == TK_MUT||tokens[i].type == TK_SUB) && (i == 0 || (tokens[i - 1].type <=TK_GE&&tokens[i - 1].type >=TK_PUS) ) ) {
       if(tokens[i].type == TK_POINT){
@@ -167,6 +168,8 @@ bool check_parentheses(int p,int q){
   }
   return true;
 }
+
+// judge whether there is an operater
 bool have_op(int p,int q){
   for(int i=p;i<q;i++){
     if( (tokens[i].type <=TK_GE&&tokens[i].type >=TK_PUS)){
@@ -242,10 +245,14 @@ int eval(int p, int q) {
         cnt--;
       }
     }
+
+    // val1 and val2 is options value;
     // Log("op=%d\n",op);
     int val1 = eval(p, op - 1);
     int val2 = eval(op + 1, q);
     // Log("val1=%d,val2=%d,op=%d\n",val1,val2,op);
+
+    // options 
     switch (tokens[op].type) {
       case TK_PUS: return val1 + val2;
       case TK_SUB: return val1 - val2;
