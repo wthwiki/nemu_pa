@@ -146,6 +146,7 @@ word_t expr(char *e, bool *success) {
   return res;
 }
 
+// judge is parentheses
 bool check_parentheses(int p,int q){
   if(tokens[p].type!=TK_BR_L){
     return false;
@@ -201,7 +202,6 @@ int eval(int p, int q) {
         break;
       case TK_MEM:
         x=atoi(v.str+2);
-
         res=vaddr_mmu_read(x,4,0);
         break;
       default :

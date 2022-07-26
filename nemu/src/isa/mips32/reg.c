@@ -17,7 +17,7 @@ word_t getValueByReg(char * str){
     } 
   }
   printf("reg name error");
-  return 0x80100000;
+  return 0;
 }
 
 void isa_reg_display() {

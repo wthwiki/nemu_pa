@@ -44,12 +44,12 @@ void free_wp(WP *wp){
   WP* del=NULL;
   // if wp is head,we need special;
   if(head==wp){
-    printf("head==wp\n");
+    // printf("head==wp\n");
     del=head;
     head=head->next;
   }else{
     WP* next =head;
-    printf("wpno = %d,no=%d\n",wp->NO,next->NO);
+    // printf("wpno = %d,no=%d\n",wp->NO,next->NO);
     while(next->next!=NULL){
       if(next->next==wp){
         del=next->next;
