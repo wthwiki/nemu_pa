@@ -124,8 +124,8 @@ return 0;
 
 static int cmd_d(char *args){
   del_wp(args);
-  printf("don't have watchpoint you want to delete\n");
-  return -1;
+  // printf("don't have watchpoint you want to delete\n");
+  return 0;
 }
 
 
