@@ -2,11 +2,11 @@
 #include "expr.h"
 #include "watchpoint.h"
 
-
-#include <stdlib.h>
+#include<stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <memory/vaddr.h>
+
 void cpu_exec(uint64_t);
 int is_batch_mode();
 
@@ -70,6 +70,7 @@ static int cmd_info(char *args){
       isa_reg_display();
       break;
     case 'w':
+      show_wp();
       printf("show the w info\n");
       break;
     default:
@@ -106,14 +107,23 @@ static int cmd_p(char *args){
   printf ("args=%s\n",args);
   // char *arg = strtok(NULL," ");
     bool f=false;
-    expr(args,&f);
-  return 0;
+    int res= expr(args,&f);
+  return res;
 }
 static int cmd_w(char *args){
+  WP* new_w=new_wp();
+  new_w->expr=(args);
+  bool f=false;
+  int his=expr(args,&f);
+  
+  new_w->histroy=his;
+
 return 0;
 }
 static int cmd_d(char *args){
-return 0;
+  del_wp(args);
+  printf("don't have watchpoint you want to delete\n");
+  return -1;
 }
 
 

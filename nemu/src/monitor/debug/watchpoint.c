@@ -1,6 +1,6 @@
 #include "watchpoint.h"
 #include "expr.h"
-
+#include<stdlib.h>
 #define NR_WP 32
 
 static WP wp_pool[NR_WP] = {};
@@ -63,9 +63,44 @@ void free_wp(WP *wp){
     free_=del;
   }
 }
+void del_wp(char * args){
+  WP * del=head;
+  int no=atoi(args);
+  while(del!=NULL){
+    if(del->NO==no){
+      free_wp(del);
+    }
+  }
+}
+
+void show_wp(){
+  WP * t=head;
+  if(t==NULL){
+    Log("don't have any watchpoint message\n");
+    return ;
+  }
+  while(t!=NULL){
+    Log("no=%d,\t\twhat=%s,\t\thistory=%d\n",t->NO,t->expr,t->histroy);
+  }
+}
 
 
+bool check_watchpoints(){
+  WP* temp=head;
+  int res;
+  bool* f=false;
+  while(temp!=NULL){
+    res=expr(temp->expr,f);
 
+    if(res!=temp->histroy){
+      Log("%s history = %d,now = %d\n",temp->expr,temp->histroy,res);
+      temp->histroy=res;
+      return true;
+    }
+    temp=temp->next;
+  }
+  return false;
+}
 
 
 
