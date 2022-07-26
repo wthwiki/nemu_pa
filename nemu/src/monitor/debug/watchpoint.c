@@ -69,7 +69,9 @@ void del_wp(char * args){
   while(del!=NULL){
     if(del->NO==no){
       free_wp(del);
+      return ;
     }
+    del=del->next;
   }
 }
 

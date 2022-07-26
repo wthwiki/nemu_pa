@@ -120,6 +120,8 @@ static int cmd_w(char *args){
 
 return 0;
 }
+
+
 static int cmd_d(char *args){
   del_wp(args);
   printf("don't have watchpoint you want to delete\n");
