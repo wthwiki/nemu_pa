@@ -14,7 +14,7 @@ enum {
   TK_PUS,TK_SUB,TK_MUT,TK_DIV,TK_EQ,TK_NEQ,TK_AND,TK_OR,TK_G,TK_L,TK_LE,TK_GE,               // +-,*,/
   TK_BR_L,TK_BR_R,                          //()
   TK_NOTYPE = 256, 
-  TK_REG=301,TK_MEM,TK_POINT,TK_NEG                        // reg mem
+  TK_REG=301,TK_MEM,TK_POINT,TK_NEG,TK_PC                        // reg mem
   /* TODO: Add more token types */
 };
 
@@ -43,6 +43,7 @@ static struct rule {
   {">=", TK_GE},
   {">",TK_G},// regex compilation failed: Invalid preceding regular expression >(?!=)
   {"<",TK_L},// regex compilation failed: Invalid preceding regular expression <(?!=)
+  {"$pc",TK_PC},
   {"[$][0-9A-Za-z]{1,5}",TK_REG},  // REG
   {"[$][0][x][0-9a-f]{1,16}",TK_MEM}
 };
@@ -196,6 +197,9 @@ int eval(int p, int q) {
     int res;
      __attribute__((unused)) bool f=false;
     switch (v.type){
+      case TK_PC:
+        res=cpu.pc;
+        break;
       case TK_REG:
       name = v.str+1;
       res = isa_reg_str2val(name,&f);

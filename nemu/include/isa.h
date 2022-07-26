@@ -1,5 +1,5 @@
-#ifndef __ISA_H__
-#define __ISA_H__
+#ifndef __ISA_H__ 
+#define __ISA_H__ 
 
 // The macro `_ISA_H_` is defined in $(CFLAGS).
 // It will be expanded as "isa/x86.h" or "isa/mips32.h" ...
