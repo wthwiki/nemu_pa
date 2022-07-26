@@ -32,6 +32,7 @@ WP* new_wp(){
   free_=free_->next;
   next->next=head;
   head=next;
+  printf("new_wp newexpr =%s\n",head->expr);
   return head;
 }
 // del a node from head;
