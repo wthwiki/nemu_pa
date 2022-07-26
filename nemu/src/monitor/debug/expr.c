@@ -43,7 +43,7 @@ static struct rule {
   {">=", TK_GE},
   {">",TK_G},// regex compilation failed: Invalid preceding regular expression >(?!=)
   {"<",TK_L},// regex compilation failed: Invalid preceding regular expression <(?!=)
-  {"$pc",TK_PC},
+  {"[$][p][c]",TK_PC},
   {"[$][0-9A-Za-z]{1,5}",TK_REG},  // REG
   {"[$][0][x][0-9a-f]{1,16}",TK_MEM}
 };
