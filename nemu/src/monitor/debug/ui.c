@@ -114,6 +114,7 @@ static int cmd_w(char *args){
   WP* new_w=new_wp();
   printf("args=%s\n",args);
   new_w->expr=args;
+  printf("new_w->expr = %s\n",new_w->expr);
   bool f=false;
   int his=expr(args,&f);
   
