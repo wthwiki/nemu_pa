@@ -3,7 +3,7 @@
 #include <monitor/difftest.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <monitor/watchpoint.h>
+#include "monitor/watchpoint.h"
 
 // #include 
 /* The assembly code of instructions executed is only output to the screen
