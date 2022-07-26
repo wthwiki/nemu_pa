@@ -40,6 +40,7 @@ void free_wp(WP *wp){
   if(head==NULL){
     return ;
   }
+  printf("%d,%d\n",wp->NO,wp->histroy);
   WP* del=NULL;
   // if wp is head,we need special;
   if(head==wp){
