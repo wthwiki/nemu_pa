@@ -183,7 +183,6 @@ int eval(int p, int q) {
   if (p > q) {
     /* Bad expression */
     assert(0);
-    
     return 0xffffffff;
   }else if (!have_op(p,q)) {
     /* Single token.
