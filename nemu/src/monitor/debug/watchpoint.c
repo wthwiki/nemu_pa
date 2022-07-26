@@ -81,6 +81,7 @@ void show_wp(){
   }
   while(t!=NULL){
     Log("no=%d,\t\twhat=%s,\t\thistory=%d\n",t->NO,t->expr,t->histroy);
+    t=t->next;
   }
 }
 
