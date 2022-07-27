@@ -122,7 +122,7 @@ static int cmd_w(char *args){
   int his=expr(args,&f);
 
   new_w->histroy=his;
-
+  show_wp();
 return 0;
 }
  
