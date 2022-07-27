@@ -71,7 +71,6 @@ static int cmd_info(char *args){
       break;
     case 'w':
       show_wp();
-      printf("show the w info\n");
       break;
     default:
       printf("you should give the args like r or w\n");
@@ -112,11 +111,9 @@ static int cmd_p(char *args){
 }
 static int cmd_w(char *args){
   WP* new_w=new_wp();
-    char cp[20];
-  strcpy(cp,args);
-  printf("args;;;;=%s\n",cp);
+  strcpy(new_w->expr,args);
+  printf("args;;;;=%s\n",args);
 
-  new_w->expr=cp;
   printf("new_w->expr;;;; = %s\n",new_w->expr);
   bool f=false;
   int his=expr(args,&f);
