@@ -112,14 +112,15 @@ static int cmd_p(char *args){
 }
 static int cmd_w(char *args){
   WP* new_w=new_wp();
-  printf("args;;;;=%s\n",args);
-  char cp[20];
+    char cp[20];
   strcpy(cp,args);
+  printf("args;;;;=%s\n",cp);
+
   new_w->expr=cp;
   printf("new_w->expr;;;; = %s\n",new_w->expr);
   bool f=false;
   int his=expr(args,&f);
-  
+
   new_w->histroy=his;
 
 return 0;
