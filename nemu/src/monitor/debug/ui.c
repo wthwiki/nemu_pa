@@ -111,7 +111,7 @@ static int cmd_p(char *args){
 }
 static int cmd_w(char *args){
   WP* new_w=new_wp();
-  char * str=new_w->expr;
+  char str[10];
   strcpy(str,args);
   printf("args;;;;=%s\n",args);
 
