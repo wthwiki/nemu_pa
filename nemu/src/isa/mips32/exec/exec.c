@@ -14,6 +14,7 @@ static inline def_EHelper(special) {
 
 
 static inline void fetch_decode_exec(DecodeExecState *s) {
+  // instruction fetch IF
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
   switch (s->isa.instr.r.opcode) {
     EX   (000, special)
@@ -30,6 +31,7 @@ static inline void reset_zero() {
 }
 
 vaddr_t isa_exec_once() {
+  // decode infomation,option,value,etc
   DecodeExecState s;
   s.is_jmp = 0;
   s.seq_pc = cpu.pc;
