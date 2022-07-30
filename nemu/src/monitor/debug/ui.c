@@ -114,7 +114,7 @@ static int cmd_w(char *args){
   char str[10];
   strcpy(str,args);
   printf("args;;;;=%s\n",args);
-
+  new_w->expr=str;
   printf("new_w->expr;;;; = %s\n",new_w->expr);
   bool f=false;
   int his=expr(args,&f);
