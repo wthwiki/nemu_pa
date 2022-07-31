@@ -16,6 +16,7 @@ static inline def_EHelper(special) {
 static inline void fetch_decode_exec(DecodeExecState *s) {
   // instruction fetch IF
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
+
   switch (s->isa.instr.r.opcode ) {
     EX   (000, special)
     IDEX (017, IU, lui)
@@ -24,6 +25,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     EX   (074, nemu_trap)
     default: exec_inv(s);
   }
+  printf("d=%d,x=%x\n",s->isa.instr.r.opcode,s->isa.instr.r.opcode);
   // wth: last decode update pc
   // update_pc(s);
 }
