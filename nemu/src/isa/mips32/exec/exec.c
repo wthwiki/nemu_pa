@@ -24,6 +24,8 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     EX   (074, nemu_trap)
     default: exec_inv(s);
   }
+  // wth: last decode update pc
+  update_pc(s);
 }
 
 static inline void reset_zero() {
