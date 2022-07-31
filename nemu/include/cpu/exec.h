@@ -5,7 +5,7 @@
 #include <rtl/rtl.h>
 #include <memory/vaddr.h>
 #include <cpu/decode.h>
-
+// excute 
 #define def_EHelper(name) void concat(exec_, name) (DecodeExecState *s)
 
 // empty decode helper

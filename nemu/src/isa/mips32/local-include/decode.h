@@ -1,7 +1,7 @@
 #include <cpu/exec.h>
 #include "rtl.h"
 
-// decode operand helper
+// decode operand helper 译码操作数辅助函数
 #define def_DopHelper(name) \
   void concat(decode_op_, name) (DecodeExecState *s, Operand *op, uint32_t val, bool load_val)
 
