@@ -22,8 +22,12 @@ static inline def_EHelper(store) {
 
 
 static inline void fetch_decode_exec(DecodeExecState *s) {
+  // instruction fetch IF
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
   Assert(s->isa.instr.i.opcode1_0 == 0x3, "Invalid instruction");
+
+  printf("pc. x=%x\n",s->isa.instr.val);
+  printf("d=%d,x=%x\n",s->isa.instr.i.opcode6_2,s->isa.instr.i.opcode6_2);
   switch (s->isa.instr.i.opcode6_2) {
     IDEX (0b00000, I, load)
     IDEX (0b01000, S, store)
