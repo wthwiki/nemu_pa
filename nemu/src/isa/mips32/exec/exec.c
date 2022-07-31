@@ -25,7 +25,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     default: exec_inv(s);
   }
   // wth: last decode update pc
-  update_pc(s);
+  // update_pc(s);
 }
 
 static inline void reset_zero() {
