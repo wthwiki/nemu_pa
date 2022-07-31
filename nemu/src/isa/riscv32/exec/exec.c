@@ -27,9 +27,26 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   Assert(s->isa.instr.i.opcode1_0 == 0x3, "Invalid instruction");
 
   printf("pc. x=%x\n",s->isa.instr.val);
-  printf("d=%d,x=%x\n",s->isa.instr.i.opcode6_2,s->isa.instr.i.opcode6_2);
-  switch (s->isa.instr.i.opcode6_2) {
+  printf("d=%x,x=%x\n",s->isa.instr.i.opcode6_2,s->isa.instr.i.opcode1_0);
+  /*
+  case 0b00000:
+    decode_I(s);
+    exec_load(s);
+  case 0b01000:
+    decode_S(s);
+    exec_store(s);
+  case 0b01101:
+    decode_U(s);
+    exec_lui(s);
+  case 0b11010:
+    exec_nemu_trap(s);
+  }
+  */
+ /*decode rules like I S U;
+  */
+  switch (s->isa.instr.i.opcode6_2) { 
     IDEX (0b00000, I, load)
+    // IDEX (0b00100,)
     IDEX (0b01000, S, store)
     IDEX (0b01101, U, lui)
     EX   (0b11010, nemu_trap)
