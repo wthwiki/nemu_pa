@@ -15,8 +15,9 @@ static inline def_EHelper(special) {
 
 static inline void fetch_decode_exec(DecodeExecState *s) {
   // instruction fetch IF
+  
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
-
+  printf("pc. x=%u\n",s->isa.instr.val);
   switch (s->isa.instr.r.opcode ) {
     EX   (000, special)
     IDEX (017, IU, lui)
