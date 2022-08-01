@@ -19,6 +19,7 @@ typedef struct {
   char str[OP_STR_SIZE];
 } Operand;
 
+//它用于存放在执行一条指令过程中的译码和执行信息, 包括操作数的类型, 宽度, 值等信息
 typedef struct {
   uint32_t opcode;
   vaddr_t seq_pc;  // sequential pc
@@ -27,10 +28,10 @@ typedef struct {
   Operand src1, dest, src2;
   int width;
   rtlreg_t tmp_reg[4];
-  ISADecodeInfo isa;
+  ISADecodeInfo isa;//ISA相关的
 } DecodeExecState;
 
-// decode helper
+// decode helper 操作对象(比如从哪里移动到哪里)
 #define def_DHelper(name) void concat(decode_, name) (DecodeExecState *s)
 
 #ifdef DEBUG

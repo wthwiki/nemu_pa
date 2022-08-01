@@ -29,6 +29,7 @@ static inline void operand_imm(DecodeExecState *s, Operand *op, bool load_val, w
 }
 
 // decode operand helper
+
 #define def_DopHelper(name) void concat(decode_op_, name) (DecodeExecState *s, Operand *op, bool load_val)
 
 /* Refer to Appendix A in i386 manual for the explanations of these abbreviations */
@@ -87,7 +88,7 @@ static inline void operand_rm(DecodeExecState *s, Operand *rm, bool load_rm_val,
   read_ModR_M(s, rm, load_rm_val, reg, load_reg_val);
 }
 
-/* Ob, Ov */
+/* Ob, Ov   */
 static inline def_DopHelper(O) {
   op->type = OP_TYPE_MEM;
   s->isa.moff = instr_fetch(&s->seq_pc, 4);
@@ -99,7 +100,7 @@ static inline def_DopHelper(O) {
 
   print_Dop(op->str, OP_STR_SIZE, "0x%x", s->isa.moff);
 }
-
+//译码辅助函数主要以i386手册附录A中的操作数表示记号来命名
 /* Eb <- Gb
  * Ev <- Gv
  */

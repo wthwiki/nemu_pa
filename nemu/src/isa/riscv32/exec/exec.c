@@ -20,9 +20,9 @@ static inline def_EHelper(store) {
   }
 }
 
-
+//取指, 译码, 执行
 static inline void fetch_decode_exec(DecodeExecState *s) {
-  // instruction fetch IF
+  // instruction fetch IF  取指(instruction fetch, IF) 
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
   Assert(s->isa.instr.i.opcode1_0 == 0x3, "Invalid instruction");
 
@@ -42,12 +42,13 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     exec_nemu_trap(s);
   }
   */
- /*decode rules like I S U;
+ /*decode rules like I S U; 目的是得到指令的操作和操作对象
   */
-  switch (s->isa.instr.i.opcode6_2) { 
+  switch (s->isa.instr.i.opcode6_2) {  
     IDEX (0b00000, I, load)
     IDEX (0b00100, I, lui) // wth
     IDEX (0b01000, S, store)
+    // IDEX (0b01000, S, store)
     IDEX (0b01101, U, lui)
     EX   (0b11010, nemu_trap)
     default: exec_inv(s);

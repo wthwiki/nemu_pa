@@ -3,6 +3,7 @@
 
 #include <cpu/decode.h>
 
+// 两个源操作数和一个目的操作数
 #define id_src1 (&s->src1)
 #define id_src2 (&s->src2)
 #define id_dest (&s->dest)

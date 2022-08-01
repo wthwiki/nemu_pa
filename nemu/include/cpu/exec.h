@@ -11,11 +11,13 @@
 // empty decode helper
 #define decode_empty(s)
 
+// index is case:    
+
 #define IDEXW(idx, id, ex, w) CASE_ENTRY(idx, concat(decode_, id), concat(exec_, ex), w)
 #define IDEX(idx, id, ex)     IDEXW(idx, id, ex, 0)
 #define EXW(idx, ex, w)       IDEXW(idx, empty, ex, w)
 #define EX(idx, ex)           EXW(idx, ex, 0)
-#define EMPTY(idx)            EX(idx, inv)
+#define EMPTY(idx)            EX(idx, inv)     
 
 // set_width() is defined in src/isa/$isa/exec/exec.c
 #define CASE_ENTRY(idx, id, ex, w) case idx: set_width(s, w); id(s); ex(s); break;
