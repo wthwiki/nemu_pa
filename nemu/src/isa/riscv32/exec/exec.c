@@ -46,12 +46,12 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   */
   switch (s->isa.instr.i.opcode6_2) {  
     IDEX (0b00000, I, load)
-    IDEX (0b00100, I, lui) // wth
+    IDEX (0b00100, I, lui) // wth li
     IDEX (0b01000, S, store)
-    IDEX (0b00101, U, lui)// wth
-    IDEX (0b01101, U, lui)// wth
-    EX (0b11011, lui )// wth jal
-    IDEX (0b11001, U, lui)// wth
+    IDEX (0b00101, U, lui)// wth auipc
+    IDEX (0b01101, U, lui)// wth add i
+    EX   (0b11011,  store)// wth jal
+    IDEX (0b11001, U, lui)// wth li
     EX   (0b11010, nemu_trap)
     default: exec_inv(s);
   }
