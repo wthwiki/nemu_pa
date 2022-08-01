@@ -48,7 +48,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     IDEX (0b00000, I, load)
     IDEX (0b00100, I, lui) // wth
     IDEX (0b01000, S, store)
-    IDEX (0b00101, I, store)
+    IDEX (0b00101, U, store)
     IDEX (0b01101, U, lui)
     EX   (0b11010, nemu_trap)
     default: exec_inv(s);
