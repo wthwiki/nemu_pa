@@ -7,5 +7,5 @@ static inline def_EHelper(jalr) {
 // I wth 
 static inline def_EHelper(ret) {
     printf("ret\n");
-  def_EHelper(jalr);
+  exec_jalr(s);
 }
