@@ -7,10 +7,8 @@ static inline def_EHelper(lui) {
 // static inline def_rtl(sm, const rtlreg_t* addr, word_t offset, const rtlreg_t* src1, int len) {
 //    vaddr_write(*addr + offset, *src1, len);
 // }
+// M[x[rs1] + sext(offset) = x[rs2][31: 0]
 static inline def_EHelper(sw) {
-  // rtlreg_t* addr=id_dest;
-  // sword_t offset = id_src2->imm; 
-  // rtlreg_t* src1 = id_dest;
-  // rtl_sm(id_dest,id_src2->imm,id_dest,4);
+  rtl_sm(s, dsrc1,id_src2->imm,ddest,4);
   // print_asm_template2(lui);
 }
