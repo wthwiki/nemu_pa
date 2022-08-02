@@ -27,8 +27,8 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   s->isa.instr.val = instr_fetch(&s->seq_pc, 4);
   Assert(s->isa.instr.i.opcode1_0 == 0x3, "Invalid instruction");
 
-  printf("pc. x=%x\n",s->isa.instr.val);
-  printf("d=%x,x=%x\n",s->isa.instr.i.opcode6_2,s->isa.instr.i.opcode1_0);
+  Log("s->isa.instr.val=%x\n",s->isa.instr.val);
+  Log("s->isa.instr.i.opcode6_2=%o\n",s->isa.instr.i.opcode6_2);
   /*
   case 0b00000:
     decode_I(s);
