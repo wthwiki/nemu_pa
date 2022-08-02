@@ -82,7 +82,6 @@ void cpu_exec(uint64_t n) {
     /* Execute one instruction, including instruction fetch,
      * instruction decode, and the actual execution. */
     __attribute__((unused)) vaddr_t seq_pc = isa_exec_once();
-    printf("seq_pc= %x\n",seq_pc);
     difftest_step(this_pc, cpu.pc);
 
     g_nr_guest_instr ++;
