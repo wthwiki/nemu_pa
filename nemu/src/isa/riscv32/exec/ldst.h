@@ -23,6 +23,6 @@ static inline def_EHelper(st) {
 }
 // wth
 static inline def_EHelper(li) {
-  rtl_li(s, ddest, 0);
+  rtl_li(s, ddest, id_src1->imm);
   print_asm_template2(li);
 }
