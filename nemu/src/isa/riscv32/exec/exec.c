@@ -54,6 +54,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
     IDEX (0b11011, J, jal)// wth jal
     IDEX (0b11001, U, lui)// wth li
     EX   (0b11010, nemu_trap)
+    // IDEX (0b01000, S, sw) // wth sw
     default: exec_inv(s);
   }
   // printf("s->isa.jmp_pc=%x\n",s->isa.jmp_pc);
