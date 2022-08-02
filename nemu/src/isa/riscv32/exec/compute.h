@@ -7,8 +7,8 @@ static inline def_EHelper(lui) {
 // U x[rd] = pc + sext(immediate[31:12] << 12)
 static inline def_EHelper(auipc) {
   // sword_t jump =;
-  Log("id_src2->simm=%x\n",id_src2->simm);
-  rtl_li(s, ddest,id_src2->simm);
+  Log("id_src2->simm\t=\t%x\n",id_src1->simm);
+  rtl_li(s, ddest,id_src1->simm);
   // print_asm_template2(lui);
 }
 
