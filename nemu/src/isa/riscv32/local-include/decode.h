@@ -44,8 +44,8 @@ static inline def_DHelper(S) {
 }
 // wth
 static inline def_DHelper(J) {
-  decode_op_r(s, id_src1, s->isa.instr.s.rs1, true);
-  sword_t simm = (s->isa.instr.s.simm11_5 << 5) | s->isa.instr.s.imm4_0;
-  decode_op_i(s, id_src2, simm, true);
-  decode_op_r(s, id_dest, s->isa.instr.s.rs2, true);
+  decode_op_r(s, id_src1, s->isa.instr.j.rd, true);
+  word_t imm = (s->isa.instr.j.imm20) | s->isa.instr.j.imm10_1<<1|s->isa.instr.j.imm11|s->isa.instr.j.imm19_12<<12;
+  Log("imm=%x\n",imm);
+  decode_op_i(s, id_src2, imm, true);
 }
