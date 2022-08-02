@@ -4,6 +4,7 @@
 #include <isa.h>
 
 #define OP_STR_SIZE 40
+//     reg              mem          imm
 enum { OP_TYPE_REG, OP_TYPE_MEM, OP_TYPE_IMM };
 
 typedef struct {

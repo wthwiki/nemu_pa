@@ -6,6 +6,7 @@ static inline void set_width(DecodeExecState *s, int width) {
   if (width != 0) s->width = width;
 }
 
+//#define def_EHelper(name) void concat(exec_, name) (DecodeExecState *s)
 static inline def_EHelper(load) {
   switch (s->isa.instr.i.funct3) {
     EXW  (2, ld, 4)
@@ -46,15 +47,16 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   */
   switch (s->isa.instr.i.opcode6_2) {  
     IDEX (0b00000, I, load)
-    IDEX (0b00100, I, lui) // wth li
+    IDEX (0b00100, I, li) // wth li
     IDEX (0b01000, S, store)
-    IDEX (0b00101, U, lui)// wth auipc
+    // IDEX (0b00101, U, auipc)// wth auipc
     IDEX (0b01101, U, lui)// wth add i
     IDEX (0b11011, I, lui)// wth jal
     IDEX (0b11001, U, lui)// wth li
     EX   (0b11010, nemu_trap)
     default: exec_inv(s);
   }
+  // printf("s->isa.jmp_pc=%x\n",s->isa.jmp_pc);
 }
 
 static inline void reset_zero() {

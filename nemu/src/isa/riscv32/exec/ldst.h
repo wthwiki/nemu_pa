@@ -21,3 +21,8 @@ static inline def_EHelper(st) {
     default: assert(0);
   }
 }
+// wth
+// static inline def_EHelper(li) {
+//   rtl_li(s, ddest, 0);
+//   print_asm_template2(li);
+// }

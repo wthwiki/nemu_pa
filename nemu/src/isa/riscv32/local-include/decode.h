@@ -7,12 +7,13 @@
 #define def_DopHelper(name) \
   void concat(decode_op_, name) (DecodeExecState *s, Operand *op, word_t val, bool load_val)
 
+// decode option imm is val
 static inline def_DopHelper(i) {
   op->type = OP_TYPE_IMM;
   op->imm = val;
   print_Dop(op->str, OP_STR_SIZE, "%d", op->imm);
 }
-
+// xxx           reg is val
 static inline def_DopHelper(r) {
   op->type = OP_TYPE_REG;
   op->reg = val;
@@ -36,6 +37,13 @@ static inline def_DHelper(U) {
 }
 // decode helper 操作对象(比如从哪里移动到哪里)
 static inline def_DHelper(S) {
+  decode_op_r(s, id_src1, s->isa.instr.s.rs1, true);
+  sword_t simm = (s->isa.instr.s.simm11_5 << 5) | s->isa.instr.s.imm4_0;
+  decode_op_i(s, id_src2, simm, true);
+  decode_op_r(s, id_dest, s->isa.instr.s.rs2, true);
+}
+// wth
+static inline def_DHelper(J) {
   decode_op_r(s, id_src1, s->isa.instr.s.rs1, true);
   sword_t simm = (s->isa.instr.s.simm11_5 << 5) | s->isa.instr.s.imm4_0;
   decode_op_i(s, id_src2, simm, true);
