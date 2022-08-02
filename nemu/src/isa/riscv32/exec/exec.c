@@ -16,7 +16,7 @@ static inline def_EHelper(load) {
 
 static inline def_EHelper(store) {
   switch (s->isa.instr.s.funct3) {
-    EXW  (2, st, 4)
+    EXW  (2, st, 4) 
     default: exec_inv(s);
   }
 }
@@ -47,10 +47,10 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   */
   switch (s->isa.instr.i.opcode6_2) {  
     IDEX (0b00000, I, load)
-    IDEX (0b00100, I, li) // wth li
+    IDEX (0b00100, I, addi) // wth li
     IDEX (0b01000, S, store)
     IDEX (0b00101, U, auipc)// wth auipc
-    IDEX (0b01101, I, addi)// wth add i
+    // IDEX (0b01101, I, addi)// wth add i
     IDEX (0b11011, J, jal)// wth jal
     IDEX (0b11001, U, lui)// wth li
     // IDEX (0b01000, S, sw) // wth sw
