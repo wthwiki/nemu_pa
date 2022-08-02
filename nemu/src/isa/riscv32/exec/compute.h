@@ -9,6 +9,7 @@ static inline def_EHelper(auipc) {
   // sword_t jump =;
   Log("ddest=%d\nid_src2->simm\t=\t%x\n",*ddest,s->seq_pc);
   rtl_li(s, ddest,s->seq_pc+id_src1->simm);
+  Log("ddest=%d\nid_src2->simm\t=\t%x\n",*ddest,s->seq_pc);
   print_asm_template2(auipc);
 }
 
