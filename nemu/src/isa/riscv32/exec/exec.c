@@ -28,7 +28,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   Assert(s->isa.instr.i.opcode1_0 == 0x3, "Invalid instruction");
 
   Log("s->isa.instr.val=%x\n",s->isa.instr.val);
-  Log("s->isa.instr.i.opcode6_2=%o\n",s->isa.instr.i.opcode6_2);
+  Log("s->isa.instr.i.opcode6_2=%x\n",s->isa.instr.i.opcode6_2);
   /*
   case 0b00000:
     decode_I(s);
