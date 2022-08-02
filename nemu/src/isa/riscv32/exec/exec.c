@@ -48,7 +48,7 @@ static inline void fetch_decode_exec(DecodeExecState *s) {
   switch (s->isa.instr.i.opcode6_2) {  
     IDEX (0b00000, I, load)
     IDEX (0b00100, I, li) // wth li
-    IDEX (0b01000, S, st)
+    IDEX (0b01000, S, store)
     IDEX (0b00101, U, lui)// wth auipc
     IDEX (0b01101, I, addi)// wth add i
     IDEX (0b11011, J, jal)// wth jal
